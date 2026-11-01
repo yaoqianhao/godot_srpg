@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmainmenu0srpg1"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" path="res://scripts/tactical_grid.gd" id="2_grid"]
+
+[sub_resource type="Environment" id="Environment_menu"]
+background_mode = 1
+background_color = Color(0.10, 0.13, 0.22, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.55
+
+[sub_resource type="ProceduralSkyMaterial" id="Sky_mat"]
+sky_top_color = Color(0.14, 0.20, 0.36, 1)
+sky_horizon_color = Color(0.55, 0.42, 0.34, 1)
+ground_bottom_color = Color(0.10, 0.09, 0.12, 1)
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_menu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_menu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, 0, -0.5, -0.383, 0.6428, -0.6634, 0.3214, 0.766, 0.5567, 0, 14, 0)
+light_color = Color(1, 0.93, 0.8, 1)
+light_energy = 1.15
+shadow_enabled = true
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 14, 31)
+current = true
+
+[node name="Diorama" type="Node3D" parent="."]
+script = ExtResource("2_grid")
+
+[node name="Units" type="Node3D" parent="."]

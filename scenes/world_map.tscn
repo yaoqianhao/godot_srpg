@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cworldmap0srpg1"]
+
+[ext_resource type="Script" path="res://scripts/world_map.gd" id="1_wm"]
+
+[node name="WorldMap" type="Node3D"]
+script = ExtResource("1_wm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866, 0, -0.5, -0.383, 0.6428, -0.6634, 0.3214, 0.766, 0.5567, 0, 14, 0)
+light_color = Color(1, 0.93, 0.8, 1)
+light_energy = 1.15
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bunit0srpg001"]
+
+[ext_resource type="Script" path="res://scripts/unit.gd" id="1_unit"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ring"]
+top_radius = 0.62
+bottom_radius = 0.62
+height = 0.12
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+radius = 0.42
+height = 1.5
+
+[node name="TacticalUnit" type="Node3D"]
+script = ExtResource("1_unit")
+
+[node name="BaseRing" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+mesh = SubResource("CylinderMesh_ring")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+mesh = SubResource("CapsuleMesh_body")
